@@ -1,0 +1,3 @@
+[submodule "CloudFront_WebUI"]
+	path = CloudFront_WebUI
+	url = https://github.com/madara-tribe/tensorflowjs
