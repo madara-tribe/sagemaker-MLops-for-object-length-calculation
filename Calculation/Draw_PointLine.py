@@ -80,7 +80,7 @@ def draw_poinline(annos, images, name_list):
     for c, (anno, img, names) in enumerate(zip(annos, images, name_list)):
         name, _ = os.path.splitext(names)
         direction = is_right_protruding(anno)
-        if direction in True:
+        if direction is True:
             img = cv2.flip(img, 1)
             anno = cv2.flip(anno, 1)
 
