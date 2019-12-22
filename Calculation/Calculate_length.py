@@ -84,7 +84,7 @@ def calculate_length(imgs, name_list):
             df.append([name, np.nan, np.nan, np.nan, np.nan, np.nan])
     save_DataFrame(df)
 
-f __name__ == '__main__':
+__name__ == '__main__':
     argvs = sys.argv
     image_dir_path = argvs[1]
     images, names = load_image(image_dir_path, mask=None)
