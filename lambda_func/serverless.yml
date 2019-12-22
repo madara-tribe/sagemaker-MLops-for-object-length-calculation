@@ -1,0 +1,27 @@
+
+service: ****-api  # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: python3.6
+  stage: demo
+  region: ap-northeast-1
+  profile: your-aws-profile
+  apiName: ****-api # Use a custom name for the API Gateway API
+  memorySize: 3008# Overwrite the default memory size. Default is 1024(MB)
+  timeout: 900 # The default is 6 seconds. Note: API Gateway current maximum is 30 seconds
+  role: arn:aws:iam::*****
+  deploymentBucket:
+    name: serverless-***-api
+
+functions:
+  predict:
+    handler: handler.lambda_handler
+    name: ****-api
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
