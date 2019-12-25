@@ -9,9 +9,9 @@ from iou_score import metrics_np, mean_iou_np, mean_dice_np
 
 
 # each class score
-def make_nclass_mask(gt, pred_annos, n_class):
+def make_nclass_mask(gts, pred_annos, n_class):
   ground_truth, pred_annos = [], []
-  for idx, (gt, pred) in enumerate(zip(gt, pred_annos)):
+  for idx, (gt, pred) in enumerate(zip(gts, pred_annos)):
       gt_ = np.where((gt == n_class), 255, 0)
       pred_ = np.where((pred == n_class), 255, 0)
       H, W = np.shape(pred_)
@@ -90,3 +90,4 @@ def cal_score():
 
 if __name__ == '__main__':
     cal_score()
+
