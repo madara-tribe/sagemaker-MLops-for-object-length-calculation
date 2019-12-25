@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import cv2
 import pandas as pd
-from sagemaker_evaluation import *
+from sagemaker_segmentaion.sagemaker_eval import *
 from iou_score import metrics_np, mean_iou_np, mean_dice_np
 
 
