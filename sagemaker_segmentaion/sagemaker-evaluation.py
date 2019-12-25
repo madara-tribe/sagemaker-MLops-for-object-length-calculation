@@ -1,4 +1,3 @@
-
 import sagemaker
 from sagemaker import get_execution_role
 from sagemaker.model import Model
@@ -17,6 +16,22 @@ import glob
 import sys
 from sagemaker.amazon.amazon_estimator import get_image_uri
 
+
+
+def deploy():
+    sess = sagemaker.Session()
+    training_image = get_image_uri(sess.boto_region_name, 'semantic-segmentation', repo_version="latest")
+    print(training_image)
+
+    role='arn:aws***/AmazonSageMaker-ExecutionRole-20190704T193457'
+    model =  Model(model_data='s3://****/sample-train/model2/output/model.tar.gz',
+               image=training_image,
+               role=role)
+    model.deploy(initial_instance_count=1, instance_type='ml.p2.xlarge')
+
+    # make endpoint
+    client = boto3.client('sagemaker')
+    peinr("endpoints_inf", client.list_endpoints())
 
 
 def load_image(inputs_dir):
@@ -70,10 +85,6 @@ def plot_result(mask, num=7):
     num_classes=num
     plt.imshow(mask, vmin=0, vmax=num_classes-1, cmap='jet')
     plt.show()
-
-
-
-
 
 
 
