@@ -3,7 +3,7 @@ from sagemaker import get_execution_role
 from sagemaker.model import Model
 import matplotlib.pyplot as plt
 import PIL
-from PIL import Image
+from PIL import Image 
 import os
 import boto3
 import json
