@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import cv2
-from enum import IntEnum
 from lambda_func.CalculateHorizontalLength import *
 from lambda_func.CalculateVerticalLength import *
 from tools.is_right_protruding import *
