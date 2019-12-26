@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import cv2
 import pandas as pd
-from iou_score import metrics_np, mean_iou_np, mean_dice_np
+from tools.iou_score import metrics_np, mean_iou_np, mean_dice_np
 import sagemaker
 from sagemaker import get_execution_role
 from sagemaker.model import Model
