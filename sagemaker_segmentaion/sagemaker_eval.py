@@ -12,7 +12,6 @@ import numpy as np
 import time
 import io
 import cv2
-from natsort import natsorted
 from sagemaker.amazon.amazon_estimator import get_image_uri
 from sagemaker.analytics import TrainingJobAnalytics
 
