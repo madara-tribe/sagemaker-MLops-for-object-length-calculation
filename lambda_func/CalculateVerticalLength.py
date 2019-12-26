@@ -2,13 +2,13 @@ import sys
 import numpy as np
 import os
 import cv2
-from enum import Enum
+from enum import IntEnum
 
-
-ID_PROP= 1 
-ID_CARDBOAD= 2
-ID_PEDESTAL= 3
-PROP_HIEGHT = 130
+class ClassID(IntEnum):
+    ID_PROP= 1 
+    ID_CARDBOAD= 2
+    ID_PEDESTAL= 3
+    PROP_HIEGHT = 130
 
 # A
 
@@ -23,7 +23,7 @@ def cal_TopProp_HW(img):
             #dist = cv2.circle(copy_imgs, (w, h), 20, (255, 255, 255), thickness=-1)
             #plt.imshow(dist),plt.show()
             class_id = img[h, w]
-            if class_id == ID_PROP:
+            if class_id == ClassID.ID_PROP:
                 Prop_height = h
                 Prop_width = w
                 break
@@ -46,9 +46,9 @@ def cal_BottomProp_HW(img):
             #dist = cv2.circle(copy_imgs, (w, h), 20, (255, 255, 255), thickness=-1)
             #plt.imshow(dist),plt.show()
             class_id = img[-h, w]
-            if class_id == ID_PEDESTAL:
+            if class_id == ClassID.ID_PEDESTAL:
                 break
-            if class_id == ID_PROP:
+            if class_id == ClassID.ID_PROP:
                 Prop_last_height = mask_h-h
                 Prop_last_width = w
                 break
@@ -73,7 +73,7 @@ def cal_nextProp_HW(img, half_width):
             #plt.imshow(dist),plt.show()
             class_id = img[h, w]
             if w>half_width:
-                if class_id == ID_PROP:
+                if class_id == ClassID.ID_PROP:
                     Prop_height = h
                     Prop_width = w
                     break
@@ -96,7 +96,7 @@ def cal_cardboard_HW(img):
             #dist = cv2.circle(copy_imgs, (w, h), 500, (255, 255, 255), thickness=-1)
             #plt.imshow(dist),plt.show()
             class_id = img[h, w]
-            if class_id == ID_CARDBOAD:
+            if class_id == ClassID.ID_CARDBOAD:
                 Cardboard_height = h
                 Cardboard_width = w
                 break
@@ -126,15 +126,15 @@ def cal_vertical_lenth_(img, W):
     DH = H-next_prop_height
     # C
     cardboard_width, cardborad_height = cal_cardboard_HW(imgs)
-    CH = H-cardborad_height
+    CH = H - cardborad_height
     
-    A=(DH-AH)/(next_prop_width-top_prop_width)
-    B = CH-(cardboard_width*A)
-    y=(top_prop_width*A)+B
+    A=(DH - AH) / (next_prop_width - top_prop_width)
+    B = CH-(cardboard_width * A)
+    y=(top_prop_width * A) + B
     
-    AB = bottom_prop_height-top_prop_height
-    AE = y-(H-top_prop_height)
-    print("vertical length is {} cm ".format(AE*PROP_HIEGHT/AB))
+    AB = bottom_prop_height - top_prop_height
+    AE = y - (H - top_prop_height)
+    print("vertical length is {} cm ".format(AE * ClassID.PROP_HIEGHT / AB))
 
     
 if __name__ == '__main__':
