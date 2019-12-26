@@ -56,41 +56,43 @@ def make_nclass_mask(gt, pred_annos, n_class):
 
 
 
-
-def save_diff_image(groundtruths, pred_masks, output_dir):
+def save_diff_image(groundtruths, pred_masks, output_dir, class_id_is):
     output_dir = output_dir
+    class_id = class_id_is
     for gt, pred in zip(groundtruths, pred_masks):
         filename, _ = os.path.splitext(os.path.basename(gt))
-        if class_id = 1:
+        if class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        if class_id = 2:
+        elif class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        if class_id = 3:
+        elif class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        if class_id = 4:
+        elif class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        if class_id = 5:
+        elif class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        if class_id = 6:
+        elif class_id = class_id:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
+            
+            
 
 def call_gt_pred_image(train_annotation_path, train_image_path):
     groundtruth = load_image(train_annotation_path)
@@ -106,7 +108,7 @@ def save_diff():
     train_image_path = "annotation_path"
     output_dir = "diff_images"
     groundtruths, pred_masks = call_gt_pred_image(train_annotation_path, train_image_path)
-    save_diff_image(groundtruths, pred_masks, output_dir)
+    save_diff_image(groundtruths, pred_masks, output_dir, class_id_is = 1)
 
 
 if __name__ == '__main__':
