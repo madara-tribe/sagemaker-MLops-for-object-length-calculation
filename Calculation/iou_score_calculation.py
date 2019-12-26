@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import cv2
 import pandas as pd
-from iou_score import metrics_np, mean_iou_np, mean_dice_np
+from tools.iou_score import *
 
 endpoint_name='semantic-segmentation-2019-12-11-04-14-04-986'
 
