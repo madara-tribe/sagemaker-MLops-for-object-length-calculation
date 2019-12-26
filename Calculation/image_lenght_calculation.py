@@ -71,10 +71,8 @@ for c, (img, anno, name) in enumerate(zip(imgs, annos, names)):
         AB = bottom_prop_height-top_prop_height
         AE = y-(H-top_prop_height)
         length = AE*PROP_HIEGHT/AB
-
         df.append([name, AH, BH, DH, CH, length])
-        save_df(df)
     except:
         print("some point is None")
         df.append([name, np.nan, np.nan, np.nan, np.nan, np.nan])
-        save_df(df)
+    save_df(df)
