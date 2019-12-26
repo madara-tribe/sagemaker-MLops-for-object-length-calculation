@@ -12,7 +12,7 @@ class ClassID(IntEnum):
     ID_PROP= 1
     ID_PEDESTAL= 3
     ID_SIDEBOARD = 4
-
+    PROPS_POS_WIDTH = 133
 
 # A
 def cal_cardboad_HW(img):
@@ -102,7 +102,7 @@ def horizontal_length_(img, W):
     cardboad_right_width, cardboad_right_height = cal_cardboad_lastHW(img, cardboard_left_height)
     prop_width, prop_height = cal_prop_HW(img, cardboard_left_height)
     next_prop_width, next_prop_height = cal_next_prop_HW(img, cardboard_left_height, int(W/2))
-    R=(cardboard_left_width-cardboad_right_width)*PROPS_POS_WIDTH/(prop_width-next_prop_width)
+    R=(cardboard_left_width-cardboad_right_width) * ClassID.PROPS_POS_WIDTH/(prop_width-next_prop_width)
     print("horizontal length {} cm".format(R))
 
 
