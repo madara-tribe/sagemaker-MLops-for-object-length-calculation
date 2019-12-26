@@ -24,8 +24,9 @@ def make_nclass_mask(gts, pred_annos, n_class):
 
 
 
-def calculate_iou_score(groundtruths, pred_masks, total = True):
+def calculate_iou_score(groundtruths, pred_masks, total = True, class_id_is = 1):
     image_name = []
+    class_id = class_id_is
     if total:
         total_score = mean_iou_np(groundtruths, pred_masks)
         total_df = pd.DataFrame(total_score)
@@ -34,32 +35,32 @@ def calculate_iou_score(groundtruths, pred_masks, total = True):
         for gt, pred in zip(groundtruths, pred_masks):
             filename, _ = os.path.splitext(os.path.basename(gt))
             image_name.append(filename)
-            if class_id = 1:
+            if class_id = class_id:
                 score1 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
                 score1.append(score)
-            if class_id = 2:
+            elif class_id = class_id:
                 score2 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
                 score2.append(score)
-            if class_id = 3:
+            elif class_id = class_id:
                 score3 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
                 score3.append(score)
-            if class_id = 4:
+            elif class_id = class_id:
                 score4 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
                 score4.append(score)
-            if class_id = 5:
+            elif class_id = class_id:
                 score5 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
                 score5.append(score)
-            if class_id = 6:
+            elif class_id = class_id:
                 score6 = []
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
@@ -85,7 +86,7 @@ def cal_score():
     train_annotation_path = "image_path"
     train_image_path = "annotation_path"
     groundtruths, pred_masks = call_gt_pred_image(train_annotation_path, train_image_path)
-    calculate_iou_score(groundtruths, pred_masks, total = None)
+    calculate_iou_score(groundtruths, pred_masks, total = None, class_id_is = 1)
 
 
 if __name__ == '__main__':
