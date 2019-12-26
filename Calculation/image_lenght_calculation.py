@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import cv2
-from enum import Enum
 import pandas as pd
 from lambda_func.CalculateHorizontalLength import *
 from lambda_func.CalculateVerticalLength import *
