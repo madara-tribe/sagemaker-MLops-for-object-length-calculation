@@ -4,9 +4,6 @@ import os
 import cv2
 from enum import IntEnum
 
-
-PROPS_POS_WIDTH = 133
-
 class ClassID(IntEnum):
     ID_CARDBOAD= 2
     ID_PROP= 1
