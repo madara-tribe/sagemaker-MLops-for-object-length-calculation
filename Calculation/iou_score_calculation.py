@@ -6,7 +6,7 @@ import cv2
 import pandas as pd
 from tools.iou_score import *
 
-endpoint_name='semantic-segmentation-2019-12-11-04-14-04-986'
+endpoint_name='semantic-segmentation-****'
 
 def deploy():
     sess = sagemaker.Session()
@@ -124,8 +124,8 @@ def call_gt_pred_image(train_annotation_path, train_image_path):
 
 
 def cal_score():
-    train_annotation_path = "ykkap_image_path"
-    train_image_path = "ykkap_annotation_path"
+    train_annotation_path = "image_path"
+    train_image_path = "annotation_path"
     groundtruths, pred_masks = call_gt_pred_image(train_annotation_path, train_image_path)
     calculate_iou_score(groundtruths, pred_masks, total = None, class_id_is = 1)
 
