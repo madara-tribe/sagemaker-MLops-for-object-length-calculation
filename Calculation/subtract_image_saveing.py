@@ -10,7 +10,7 @@ from sagemaker import get_execution_role
 from sagemaker.model import Model
 from sagemaker.amazon.amazon_estimator import get_image_uri
 
-endpoint_name='semantic-segmentation-2019-12-11-04-14-04-986'
+endpoint_name='semantic-segmentation-*****'
 
 def deploy():
     sess = sagemaker.Session()
@@ -145,8 +145,8 @@ def call_gt_pred_image(train_annotation_path, train_image_path):
 
 
 def save_subtraction():
-    train_annotation_path = "ykkap_image_path"
-    train_image_path = "ykkap_annotation_path"
+    train_annotation_path = "image_path"
+    train_image_path = "annotation_path"
     output_dir = "diff_images"
     groundtruths, pred_masks = call_gt_pred_image(train_annotation_path, train_image_path)
     save_subtraction_image(groundtruths, pred_masks, output_dir, class_id_is = 1)
