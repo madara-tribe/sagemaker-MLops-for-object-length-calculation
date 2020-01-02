@@ -102,32 +102,32 @@ def save_subtraction_image(groundtruths, pred_masks, output_dir, class_id_is):
     class_id = class_id_is
     for gt, pred in zip(groundtruths, pred_masks):
         filename, _ = os.path.splitext(os.path.basename(gt))
-        if class_id = class_id:
+        if class_id == 1:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        elif class_id = class_id:
+        elif class_id == 2:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        elif class_id = class_id:
+        elif class_id == 3:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        elif class_id = class_id:
+        elif class_id == 4:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        elif class_id = class_id:
+        elif class_id == 5:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
             save_img(color_diff, filename, output_dir)
-        elif class_id = class_id:
+        elif class_id == 6:
             n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
             diff = n_class_gt - n_class_pred
             color_diff = mask_to_color(diff, class_id)
