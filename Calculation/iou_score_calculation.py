@@ -65,6 +65,7 @@ def save_img(diff, filename, output_dir):
 
 def calculate_iou_score(groundtruths, pred_masks, total = True, class_id_is = 1):
     image_name = []
+    scores = []
     class_id = class_id_is
     if total:
         total_score = mean_iou_np(groundtruths, pred_masks)
@@ -74,39 +75,38 @@ def calculate_iou_score(groundtruths, pred_masks, total = True, class_id_is = 1)
         for gt, pred in zip(groundtruths, pred_masks):
             filename, _ = os.path.splitext(os.path.basename(gt))
             image_name.append(filename)
-            if class_id = class_id:
-                score1 = []
+            if class_id == 1:
+                lists=["filename", "Prop"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score1.append(score)
-            elif class_id = class_id:
-                score2 = []
+                scores.append(score)
+            elif class_id == 2:
+                lists=["filename", "Cardboard"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score2.append(score)
-            elif class_id = class_id:
-                score3 = []
+                scores.append(score)
+            elif class_id == 3:
+                lists=["filename", "Pedestal"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score3.append(score)
-            elif class_id = class_id:
-                score4 = []
+                scores.append(score)
+            elif class_id == 4:
+                lists=["filename", "Sideboard"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score4.append(score)
-            elif class_id = class_id:
-                score5 = []
+                scores.append(score)
+            elif class_id == 5:
+                lists=["filename", "Paper"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score5.append(score)
-            elif class_id = class_id:
-                score6 = []
+                scores.append(score)
+            elif class_id == 6
+                lists=["filename", "Band"]
                 n_class_gt, n_class_pred = make_nclass_mask(gt, pred, class_id)
                 score = mean_iou_np(n_class_gt, n_class_pred)
-                score6.append(score)
-            df = pd.concat([image_name, score1, score2, score3, score4, score5, score6], axis=1)
+                scores.append(score)
+            df = pd.concat([image_name, score], axis=1)
             print(df.shape)
-            lists=["filename", "Prop", "Cardboard", "Pedestal", "Sideboard", "Paper", "Band"]
             df.columns=lists
             df.to_csv("each_iou_score.csv")
 
