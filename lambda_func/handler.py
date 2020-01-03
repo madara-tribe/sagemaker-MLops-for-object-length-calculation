@@ -48,8 +48,8 @@ def Base64ToNadarry(img_base64):
 def lambda_handler(event, context):
     try:
         #print(event)
-        base64L = event['left'][23:]
-        base64R = event["right"][23:]
+        base64L = event['left']
+        base64R = event["right"]
         Limage = Base64ToNadarry(base64L)
         Rimage = Base64ToNadarry(base64R)
         if Rimage is not None:
