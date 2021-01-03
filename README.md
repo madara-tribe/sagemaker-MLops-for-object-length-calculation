@@ -1,4 +1,4 @@
-# sagemaker-MLops-for-object-length-calculation
+# sagemaker-MLops
 
 segmetation model for object length calculation and Amazon sagemaker MLops the model work.
 
